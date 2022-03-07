@@ -2,7 +2,7 @@
 
 import createSearchDiv from "./search.js";
 import createChart from "./chart.js";
-
+import showStats  from "./stats.js";
 
 
 
@@ -37,9 +37,9 @@ let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], "E
 const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10];
 
 
-
 createChart(playersArr);
 createSearchDiv();
+
 
 
 playersArr.forEach(createProfile);
@@ -63,10 +63,7 @@ function createProfile(currentValue, index, arr){
 }
 
 
-
-
-
-
+showStats();
 
 
 

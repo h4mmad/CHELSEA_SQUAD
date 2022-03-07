@@ -30,7 +30,8 @@ function createChart(arr){
           color: "#000000",
           fill: false,
           tension: 0,
-          hoverBackgroundColor: "#FC7C29"
+          hoverBackgroundColor: "#FC7C29",
+          barPercentage: 0.5
         }],
       }
     });
