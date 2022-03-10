@@ -71,8 +71,8 @@ const playerAttr = [
 
 
 
-createChart(playersArr);
-createSearchDiv();
+let ageArr  = createChart(playersArr);
+// createSearchDiv();
 
 
 
@@ -110,6 +110,24 @@ function createProfile(currentValue, index, arr){
     closeSpan.innerHTML = "&times;";
     closeSpan.addEventListener("click", closeModal);
 
+    let modalName = document.createElement("h3");
+    modalName.setAttribute("class", "modal-name");
+    modalName.textContent = arr[index].fullname;
+
+    let modalPosition = document.createElement("h3");
+    modalPosition.setAttribute("class", "modal-position");
+    modalPosition.textContent = "Position: "+arr[index].position;
+
+    let modalAge = document.createElement("h3");
+    modalAge.setAttribute("class", "modal-position");
+    modalAge.textContent = "Age: "+ageArr[index];
+
+    let modalCountry = document.createElement("h3");
+    modalCountry.setAttribute("class", "modal-position");
+    modalCountry.textContent = "Country: "+arr[index].country;
+
+    
+
 
     chartCanvas = document.createElement("canvas");
     chartCanvas.setAttribute("id","playerChart");
@@ -120,12 +138,12 @@ function createProfile(currentValue, index, arr){
         
         data : {
             labels: [
-              'PAC',
-              'SHO',
-              'PAS',
-              'DRI',
-              'DEF',
-              'PHY'
+              'Pace',
+              'Shooting',
+              'Passing',
+              'Dribbling',
+              'Defence',
+              'Physical'
             ],
             datasets: [{
               label: arr[index].fullname,
@@ -144,6 +162,11 @@ function createProfile(currentValue, index, arr){
                 r: {
                     suggestedMin: 0,
                     suggestedMax: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
                 }
             } 
         }
@@ -168,10 +191,13 @@ function createProfile(currentValue, index, arr){
     
 
 
-    
-
     modalContent.appendChild(closeSpan);
-    modalContent.appendChild(chartCanvas)
+    modalContent.appendChild(modalName);
+    modalContent.appendChild(chartCanvas);
+    modalContent.appendChild(modalPosition);
+    modalContent.appendChild(modalCountry);
+    modalContent.appendChild(modalAge);
+
     modal.appendChild(modalContent);
     mainDiv.appendChild(modal);
     

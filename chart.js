@@ -37,5 +37,7 @@ function createChart(arr){
     });
 
     chartDiv.appendChild(canvas);
+
+    return playerAges;
 }
 export default createChart;
