@@ -18,7 +18,7 @@ function createChart(arr){
 
     
     new Chart(canvas, {
-      type: "bar",
+      type: "line",
       data: {
         labels: playerNames,
         datasets: [{
