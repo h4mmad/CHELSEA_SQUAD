@@ -52,8 +52,9 @@ let player9 = new player("Thiago Silva", new Date(1984, 8, 22), positions[1], co
 let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], countries[2] ,"mount.png");
 let player11 = new player("Hakim Ziyech", new Date(1993, 2, 19), positions[2], countries[7], "hakim.png");
 let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], countries[6], "kai.png");
+let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], countries[6], "timo.png");
 
-const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12];
+const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13];
 
 const playerAttr = [
     [65, 80, 65, 22, 65, 85],
@@ -65,7 +66,10 @@ const playerAttr = [
     [89, 91, 78, 83, 42, 86],
     [58, 74, 78, 77, 75, 77],
     [55, 55, 73, 74, 87, 80],
-    [74, 79, 84, 83, 55, 65]
+    [74, 79, 84, 83, 55, 65],
+    [78, 76, 87, 83, 50, 65],
+    [82, 78, 79, 84, 45, 66],
+    [91, 81, 70, 82, 35, 70]
 ]
 
 
