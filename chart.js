@@ -1,6 +1,9 @@
 function createChart(arr){
 
     let today = new Date();
+    let sum = 0;
+    let avgAge = 0;
+    
 
     let chartDiv = document.getElementById("chart-div");
     let canvas = document.createElement("canvas");
@@ -16,23 +19,40 @@ function createChart(arr){
         return Math.round(diffDays/365);
     });
 
+    for(let i = 0; i<playerAges.length; i++){
+      sum += playerAges[i];
+      avgAge = (sum/playerAges.length);
+      avgAge = avgAge.toFixed(2);
+    }
+    const avgAgeArr = playerAges.map(() => avgAge);
+
+    
+
+    
+
     
     new Chart(canvas, {
       type: "line",
       data: {
         labels: playerNames,
         datasets: [{
-          label: "Player Age",
+          label: "Player age",
           backgroundColor: "#182E7A",
           data: playerAges,
-        //   borderColor: "#182E7A",
+          borderColor: "#182E7A",
           borderWidth: 2,
-          color: "#000000",
           fill: false,
-          tension: 0,
+          tension: 0.1,
           hoverBackgroundColor: "#FC7C29",
           barPercentage: 0.5
-        }],
+        },{
+          label: "Average age = " + avgAge,
+          data: avgAgeArr,
+          type: 'line',
+          pointRadius: 0,
+          borderColor: "red",
+          backgroundColor: "red"
+        }]
       }
     });
 

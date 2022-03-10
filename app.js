@@ -10,13 +10,12 @@ const dir = "images/";
 const flagDir = "images/flags/";
 
 class player{
-    constructor(fullname, dob, position, country, picLink, flagLink){
+    constructor(fullname, dob, position, country, picLink){
         this.dob = dob;
         this.fullname = fullname;
         this.position = position;
         this.country = country;
         this.picLink = picLink;
-        this.flagLink = flagLink
     }
 }
 
@@ -52,8 +51,9 @@ let player8 = new player("Marcos Alonso", new Date(1990, 11, 28), positions[1], 
 let player9 = new player("Thiago Silva", new Date(1984, 8, 22), positions[1], countries[9], "silva.png");
 let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], countries[2] ,"mount.png");
 let player11 = new player("Hakim Ziyech", new Date(1993, 2, 19), positions[2], countries[7], "hakim.png");
+let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], countries[6], "kai.png");
 
-const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11];
+const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12];
 
 const playerAttr = [
     [65, 80, 65, 22, 65, 85],
@@ -205,7 +205,7 @@ function createProfile(currentValue, index, arr){
     
     function displayModal(){
         modal.style.display = "block";
-        body.style.overflow = "hidden";
+        
         
     }
     function closeModal(){ 
