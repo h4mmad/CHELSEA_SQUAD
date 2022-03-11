@@ -36,7 +36,7 @@ const countryFlags = new Map([
 ]);
 const countries = Array.from(countryFlags.keys());
 
-console.log(countries);
+
 
 
 
@@ -57,7 +57,7 @@ let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], cou
 const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13];
 
 const playerAttr = [
-    [65, 80, 65, 22, 65, 85],
+    [83, 82, 78, 84, 35, 81],
     [85, 47, 78, 77, 92, 92],
     [80, 37, 72, 74, 88, 81],
     [88, 60, 83, 82, 81, 82],
@@ -81,6 +81,8 @@ let ageArr  = createChart(playersArr);
 
 
 let chartCanvas;
+let gkCanvas;
+
 playersArr.forEach(createProfile);
 
 
@@ -105,6 +107,7 @@ function createProfile(currentValue, index, arr){
 
     let modal = document.createElement("div");
     modal.setAttribute("class", "modal");
+    modal.addEventListener("click",closeModal);
 
     let modalContent = document.createElement("div");
     modalContent.setAttribute("class", "modal-content");
@@ -134,47 +137,97 @@ function createProfile(currentValue, index, arr){
 
 
     chartCanvas = document.createElement("canvas");
-    chartCanvas.setAttribute("id","playerChart");
-    
+    chartCanvas.setAttribute("class","playerChart");
 
-    new Chart(chartCanvas, {
-        type: 'radar',
+    gkCanvas = document.createElement("canvas");
+    gkCanvas.setAttribute("class","playerChart");
+    
+    if(arr[index].position === 'GK'){
+        console.log(arr[index]);
         
-        data : {
-            labels: [
-              'Pace',
-              'Shooting',
-              'Passing',
-              'Dribbling',
-              'Defence',
-              'Physical'
-            ],
-            datasets: [{
-              label: arr[index].fullname,
-              data: playerAttr[index],
-              fill: true,
-              backgroundColor: 'rgba(24, 46, 122, 0.2)',
-              borderColor: '#182E7A',
-              pointBackgroundColor: '#182E7A',
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: 'rgb(255, 99, 132)'
-            }]
-          },
-          options: {
-            scales: {
-                r: {
-                    suggestedMin: 0,
-                    suggestedMax: 100
-                }
+        new Chart(gkCanvas, {
+            type: 'radar',
+            
+            data : {
+                labels: [
+                  'Diving',
+                  'Handling',
+                  'Kicking',
+                  'Reflexes',
+                  'Speed',
+                  'Positioning'
+                ],
+                datasets: [{
+                  label: arr[index].fullname,
+                  data: playerAttr[index],
+                  fill: true,
+                  backgroundColor: 'rgba(24, 46, 122, 0.2)',
+                  borderColor: '#182E7A',
+                  pointBackgroundColor: '#182E7A',
+                  pointBorderColor: '#fff',
+                  pointHoverBackgroundColor: '#fff',
+                  pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }]
+              },
+              options: {
+                scales: {
+                    r: {
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                } 
+            }
+        })
+
+        
+
+        
+    }
+    else{
+        new Chart(chartCanvas, {
+            type: 'radar',
+            
+            data : {
+                labels: [
+                'Pace',
+                'Shooting',
+                'Passing',
+                'Dribbling',
+                'Defence',
+                'Physical'
+                ],
+                datasets: [{
+                label: arr[index].fullname,
+                data: playerAttr[index],
+                fill: true,
+                backgroundColor: 'rgba(24, 46, 122, 0.2)',
+                borderColor: '#182E7A',
+                pointBackgroundColor: '#182E7A',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }]
             },
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            } 
-        }
-    });
+            options: {
+                scales: {
+                    r: {
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                } 
+            }
+        });
+    }
 
 
     playerDiv.appendChild(playerImg);
@@ -197,7 +250,14 @@ function createProfile(currentValue, index, arr){
 
     modalContent.appendChild(closeSpan);
     modalContent.appendChild(modalName);
-    modalContent.appendChild(chartCanvas);
+
+    if(arr[index].position === "GK"){
+        modalContent.appendChild(gkCanvas);
+    }
+    else{
+        modalContent.appendChild(chartCanvas);
+    }
+    
     modalContent.appendChild(modalPosition);
     modalContent.appendChild(modalCountry);
     modalContent.appendChild(modalAge);
@@ -206,6 +266,11 @@ function createProfile(currentValue, index, arr){
     mainDiv.appendChild(modal);
     
 
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal()
+        }
+      }
     
     function displayModal(){
         modal.style.display = "block";
@@ -218,6 +283,8 @@ function createProfile(currentValue, index, arr){
     }
     
     
+
+      
     
 
     
@@ -241,8 +308,3 @@ function createProfile(currentValue, index, arr){
 
 
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeModal()
-    }
-  }

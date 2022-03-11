@@ -12,7 +12,7 @@
 }
 
 #club-logo{
-    width: 9rem;
+    width: 10rem;
     align-items: center;
     padding: 0.75rem;
 }
@@ -30,7 +30,7 @@
     align-items: center;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
-    background-color: #182E7A;
+    /* background-color: #182E7A; */
 }
 
 #search{
@@ -123,13 +123,13 @@
 }
 
 
-#playerChart{
+.playerChart{
     
     max-height: 20rem;
 }
 
 .player-flag{
-    width: 2rem;
+    width: 1.5rem;
     margin-left: auto;
   margin-right: auto;
 
