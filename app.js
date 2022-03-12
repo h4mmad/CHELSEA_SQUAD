@@ -2,6 +2,7 @@
 
 import createSearchDiv from "./search.js";
 import createChart from "./chart.js";
+import createHeightChart from "./heightChart.js";
 
 let body = document.getElementById("body");
 const mainDiv = document.getElementById("main");
@@ -10,12 +11,13 @@ const dir = "images/";
 const flagDir = "images/flags/";
 
 class player{
-    constructor(fullname, dob, position, country, picLink){
+    constructor(fullname, dob, position, country, picLink, height){
         this.dob = dob;
         this.fullname = fullname;
         this.position = position;
         this.country = country;
         this.picLink = picLink;
+        this.height = height;
     }
 }
 
@@ -32,7 +34,8 @@ const countryFlags = new Map([
     ["Germany", "germany.png"],
     ["Morocco", "morocco.png"],
     ["Spain", "spain.png"],
-    ["Brazil", "brazil.png"]
+    ["Brazil", "brazil.png"],
+    ["Croatia", "croatia.png"]
 ]);
 const countries = Array.from(countryFlags.keys());
 
@@ -40,21 +43,23 @@ const countries = Array.from(countryFlags.keys());
 
 
 
-let player1 = new player("Edouard Mendy", new Date(1992,2,1), positions[0], countries[0], "mendy.png");
-let player2 = new player("Antonio Rüdiger", new Date(1993, 2, 3), positions[1], countries[6], "rudiger.png");
-let player3 = new player("Andreas Christensen", new Date(1996, 3, 10), positions[1], countries[4], "christensen.png");
-let player4 = new player("César Azpilicueta", new Date(1989, 7, 28), positions[1], countries[8], "azpi.png");
-let player5 = new player("N'Golo Kanté", new Date(1991, 2, 29), positions[2], countries[5], "kante.png");
-let player6 = new player("Jorginho", new Date(1991, 11, 20), positions[2], countries[3], "jorginho.png");
-let player7 = new player("Romelu Lukaku", new Date(1993, 4, 13), positions[3], countries[1], "lukaku.png");
-let player8 = new player("Marcos Alonso", new Date(1990, 11, 28), positions[1], countries[8], "malonso.png");
-let player9 = new player("Thiago Silva", new Date(1984, 8, 22), positions[1], countries[9], "silva.png");
-let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], countries[2] ,"mount.png");
-let player11 = new player("Hakim Ziyech", new Date(1993, 2, 19), positions[2], countries[7], "hakim.png");
-let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], countries[6], "kai.png");
-let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], countries[6], "timo.png");
+let player1 = new player("Edouard Mendy", new Date(1992,2,1), positions[0], countries[0], "mendy.png", 198);
+let player2 = new player("Antonio Rudiger", new Date(1993, 2, 3), positions[1], countries[6], "rudiger.png", 190);
+let player3 = new player("Andreas Christensen", new Date(1996, 3, 10), positions[1], countries[4], "christensen.png", 187);
+let player4 = new player("Cesar Azpilicueta", new Date(1989, 7, 28), positions[1], countries[8], "azpi.png", 178);
+let player5 = new player("NGolo Kante", new Date(1991, 2, 29), positions[2], countries[5], "kante.png", 168);
+let player6 = new player("Jorginho", new Date(1991, 11, 20), positions[2], countries[3], "jorginho.png", 180);
+let player7 = new player("Romelu Lukaku", new Date(1993, 4, 13), positions[3], countries[1], "lukaku.png", 191);
+let player8 = new player("Marcos Alonso", new Date(1990, 11, 28), positions[1], countries[8], "malonso.png", 189);
+let player9 = new player("Thiago Silva", new Date(1984, 8, 22), positions[1], countries[9], "silva.png", 183);
+let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], countries[2] ,"mount.png", 180);
+let player11 = new player("Hakim Ziyech", new Date(1993, 2, 19), positions[2], countries[7], "hakim.png", 181);
+let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], countries[6], "kai.png", 190);
+let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], countries[6], "timo.png", 180);
+let player14 = new player("Kepa Arrizabalaga", new Date(1994, 9, 3), positions[0], countries[8], "kepa.png", 186);
+let player15 = new player("Mateo Kovacic", new Date(1994, 4, 6), positions[2], countries[10], "kovacic.png", 176);
 
-const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13];
+const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15];
 
 const playerAttr = [
     [83, 82, 78, 84, 35, 81],
@@ -69,7 +74,9 @@ const playerAttr = [
     [74, 79, 84, 83, 55, 65],
     [78, 76, 87, 83, 50, 65],
     [82, 78, 79, 84, 45, 66],
-    [91, 81, 70, 82, 35, 70]
+    [91, 81, 70, 82, 35, 70],
+    [78, 77, 85, 81, 34, 76],
+    [81, 73, 90, 93, 75, 75]
 ]
 
 
@@ -132,6 +139,10 @@ function createProfile(currentValue, index, arr){
     let modalCountry = document.createElement("h3");
     modalCountry.setAttribute("class", "modal-position");
     modalCountry.textContent = "Country: "+arr[index].country;
+
+    let modalHeight = document.createElement("h3");
+    modalHeight.setAttribute("class", "modal-position");
+    modalHeight.textContent = "Height: "+arr[index].height+" cm";
 
     
 
@@ -207,8 +218,9 @@ function createProfile(currentValue, index, arr){
                 fill: true,
                 backgroundColor: 'rgba(24, 46, 122, 0.2)',
                 borderColor: '#182E7A',
+                color: '#182E7A',
                 pointBackgroundColor: '#182E7A',
-                pointBorderColor: '#fff',
+                pointBorderColor: '#182E7A',
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgb(255, 99, 132)'
                 }]
@@ -261,6 +273,7 @@ function createProfile(currentValue, index, arr){
     modalContent.appendChild(modalPosition);
     modalContent.appendChild(modalCountry);
     modalContent.appendChild(modalAge);
+    modalContent.appendChild(modalHeight);
 
     modal.appendChild(modalContent);
     mainDiv.appendChild(modal);
@@ -282,19 +295,10 @@ function createProfile(currentValue, index, arr){
         body.style.overflow = "visible";
     }
     
-    
-
-      
-    
-
-    
-
-
-    
 }
 
 
-
+createHeightChart(playersArr);
 
 
 
