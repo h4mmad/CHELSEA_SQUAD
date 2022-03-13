@@ -83,10 +83,10 @@ const playerAttr = [
 
 
 let ageArr  = createChart(playersArr);
-// createSearchDiv();
 
 
 
+let playerDiv;
 let chartCanvas;
 let gkCanvas;
 
@@ -104,7 +104,7 @@ function createProfile(currentValue, index, arr){
     playerFlag.src = flagDir+countryFlags.get(arr[index].country);
     
 
-    let playerDiv = document.createElement("div");
+    playerDiv = document.createElement("div");
     playerDiv.setAttribute("class", "player-div");
     playerDiv.addEventListener("click",displayModal);
 
@@ -154,7 +154,6 @@ function createProfile(currentValue, index, arr){
     gkCanvas.setAttribute("class","playerChart");
     
     if(arr[index].position === 'GK'){
-        console.log(arr[index]);
         
         new Chart(gkCanvas, {
             type: 'radar',
@@ -301,7 +300,7 @@ function createProfile(currentValue, index, arr){
 createHeightChart(playersArr);
 
 
-
+createSearchDiv();
 
 
 
