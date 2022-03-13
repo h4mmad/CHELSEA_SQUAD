@@ -300,7 +300,7 @@ function createProfile(currentValue, index, arr){
 createHeightChart(playersArr);
 
 
-createSearchDiv();
+createSearchDiv(playersArr);
 
 
 
