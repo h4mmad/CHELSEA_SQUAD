@@ -13,6 +13,7 @@ function createSearchDiv(arr){
 
 
     let ulList = document.createElement("ul");
+    let liList;
     ulList.setAttribute("id", "ul-list");
     ulList.setAttribute("tabindex", "1");
 
@@ -20,15 +21,18 @@ function createSearchDiv(arr){
 
 
     arr.forEach(element => {
-        let liList = document.createElement("li");
+        liList = document.createElement("li");
         liList.setAttribute("class", "li-list");
+        liList.addEventListener("blur", ()=>{
+            ulList.style.display = 'none';
+        })
         liList.append(element.fullname);
         ulList.appendChild(liList);
     })
 
     
     
-
+    
 
 
     
@@ -43,12 +47,12 @@ function createSearchDiv(arr){
     let playerDivArr = Array.from(playerDiv);
 
     inputBox.addEventListener("focus", () => {
-        ulList.style.display = 'block';
+        ulList.style.display = 'block'
     })
-    // inputBox.addEventListener("blur", () => {
-    //     ulList.style.display = 'none';
-    // })
     ulList.addEventListener("blur", () => {
+        ulList.style.display = 'none';
+    })
+    document.getElementById("body").addEventListener("focus", ()=>{
         ulList.style.display = 'none';
     })
 
@@ -60,16 +64,21 @@ function createSearchDiv(arr){
             playerDivArr.forEach(element => {
                 if(element.innerText.toLowerCase() !== inputBox.value.toLowerCase()){
                     element.style.display = 'none';
+                    console.log(inputBox.value)
                 }
                 else{
                     element.style.display = '';
+                    console.log(inputBox.value)
                 }
             })
         })
     })
+    
     inputBox.addEventListener("keyup", () => {
-
-        
+        console.log(inputBox.value)
+        playerDivArr.forEach(element => {
+            element.style.display = '';
+        })
 
         let  filter;
         let a;

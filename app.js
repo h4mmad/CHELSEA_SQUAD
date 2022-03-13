@@ -35,7 +35,8 @@ const countryFlags = new Map([
     ["Morocco", "morocco.png"],
     ["Spain", "spain.png"],
     ["Brazil", "brazil.png"],
-    ["Croatia", "croatia.png"]
+    ["Croatia", "croatia.png"],
+    ["United States", "us.png"]
 ]);
 const countries = Array.from(countryFlags.keys());
 
@@ -58,8 +59,10 @@ let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], co
 let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], countries[6], "timo.png", 180);
 let player14 = new player("Kepa Arrizabalaga", new Date(1994, 9, 3), positions[0], countries[8], "kepa.png", 186);
 let player15 = new player("Mateo Kovacic", new Date(1994, 4, 6), positions[2], countries[10], "kovacic.png", 176);
+let player16 = new player("Ben Chilwell", new Date(1996, 11, 21), positions[1], countries[2], "ben.png", 180);
+let player17 = new player("Christian Pulisic", new Date(1998, 8, 18), positions[2], countries[11], "pulisic.png", 177);
 
-const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15];
+const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17];
 
 const playerAttr = [
     [83, 82, 78, 84, 35, 81],
@@ -76,7 +79,9 @@ const playerAttr = [
     [82, 78, 79, 84, 45, 66],
     [91, 81, 70, 82, 35, 70],
     [78, 77, 85, 81, 34, 76],
-    [81, 73, 90, 93, 75, 75]
+    [81, 73, 90, 93, 75, 75],
+    [76, 53, 77, 78, 78, 75],
+    [89, 70, 73, 86, 37, 59]
 ]
 
 
