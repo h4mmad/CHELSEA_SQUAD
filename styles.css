@@ -104,7 +104,7 @@
 
 .center{
     width: 70%;
-    margin: auto
+    margin: auto;
 }
 
 .front-img{
@@ -138,19 +138,14 @@
 
 
 
-/* #chart-div{
+#chart-div, #height-chart{
     width: 90%;
-    display: flex;
-    text-align: center;
-} */
+    margin: auto;
+}
 
 #myChart, #heightChart{
     width: 100%;
     max-width: 100%;
-}
-
-#height-chart{
-
 }
 
 .playerChart{
@@ -223,5 +218,4 @@
     text-align: left;
    
 }
-
 
