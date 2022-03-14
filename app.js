@@ -54,15 +54,12 @@ let player7 = new player("Romelu Lukaku", new Date(1993, 4, 13), positions[3], c
 let player8 = new player("Marcos Alonso", new Date(1990, 11, 28), positions[1], countries[8], "malonso.png", 189);
 let player9 = new player("Thiago Silva", new Date(1984, 8, 22), positions[1], countries[9], "silva.png", 183);
 let player10 = new player("Mason Mount", new Date(1999, 0, 10), positions[2], countries[2] ,"mount.png", 180);
-let player11 = new player("Hakim Ziyech", new Date(1993, 2, 19), positions[2], countries[7], "hakim.png", 181);
 let player12 = new player("Kai Havertz", new Date(1999, 5, 11), positions[2], countries[6], "kai.png", 190);
 let player13 = new player("Timo Werner", new Date(1996, 2, 6), positions[3], countries[6], "timo.png", 180);
 let player14 = new player("Kepa Arrizabalaga", new Date(1994, 9, 3), positions[0], countries[8], "kepa.png", 186);
 let player15 = new player("Mateo Kovacic", new Date(1994, 4, 6), positions[2], countries[10], "kovacic.png", 176);
-let player16 = new player("Ben Chilwell", new Date(1996, 11, 21), positions[1], countries[2], "ben.png", 180);
-let player17 = new player("Christian Pulisic", new Date(1998, 8, 18), positions[2], countries[11], "pulisic.png", 177);
 
-const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17];
+const playersArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player12, player13, player14, player15];
 
 const playerAttr = [
     [83, 82, 78, 84, 35, 81],
@@ -75,13 +72,10 @@ const playerAttr = [
     [58, 74, 78, 77, 75, 77],
     [55, 55, 73, 74, 87, 80],
     [74, 79, 84, 83, 55, 65],
-    [78, 76, 87, 83, 50, 65],
     [82, 78, 79, 84, 45, 66],
     [91, 81, 70, 82, 35, 70],
     [78, 77, 85, 81, 34, 76],
     [81, 73, 90, 93, 75, 75],
-    [76, 53, 77, 78, 78, 75],
-    [89, 70, 73, 86, 37, 59]
 ]
 
 

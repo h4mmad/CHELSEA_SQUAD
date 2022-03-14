@@ -19,11 +19,22 @@ function createHeightChart(arr){
     let canvas = document.createElement("canvas");
     canvas.setAttribute("id","heightChart");
 
+    let headingHeightChart = document.createElement("h3");
+    headingHeightChart.setAttribute("class" , "player-name");
+    headingHeightChart.setAttribute("id", "height-heading");
+    headingHeightChart.textContent = "Player heights";
+
+
+    const plyrNam = arr.map(item => {
+      let a = item.fullname.split(' ');
+      return a;
+    });
+
 
     new Chart(canvas, {
         type: "line",
         data: {
-          labels: playerNames,
+          labels: plyrNam,
           datasets: [{
             label: "Player height (in cm)",
             backgroundColor: "#182E7A",
@@ -47,6 +58,7 @@ function createHeightChart(arr){
 
 
 
+      heightChartDiv.appendChild(headingHeightChart);
       heightChartDiv.appendChild(canvas);
     
 

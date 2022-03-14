@@ -42,33 +42,11 @@
     flex-direction: column;
 }
 
-/* #search-btn{
-    height: 2rem;
-    width: fit-content;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    border: 1px #182E7A solid;
-    border-radius: 5px;
-    color: #182E7A;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 2rem;
-    background-color: #182E7A;
-    color: white;
-} */
 
-/* #search-btn:hover{
-    cursor: pointer;
-    background-color: white;
-    color: #182E7A;
-    border: #162869 1px solid;
-} */
 
 #input-box{
-    /* border-radius: 5px; */
+    border-radius: 5px;
     border: 1px #182E7A solid;
-    /* margin: 1.5rem; */
     font-size: medium;
     height: 2rem;
     width: 15rem;
@@ -76,16 +54,14 @@
     font-family: 'Poppins', sans-serif;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    border: 1px solid #ddd;
-  
 }
 
 
 #ul-list{
     list-style-type: none;
     padding: 0;
-     margin: 0;
-     display: none;
+    margin: 0;
+    display: none;
 }
 
 
@@ -101,6 +77,8 @@
     width: 15rem;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
+    height: 2rem;
+    width: 15rem;
     
 }
 
@@ -138,6 +116,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-align: center;
+    color: #182E7A;
 }
 
 .player-div{
@@ -158,23 +137,29 @@
 }
 
 
+
 /* #chart-div{
     width: 90%;
-    margin: auto;
+    display: flex;
+    text-align: center;
 } */
 
-/* #myChart{
+#myChart, #heightChart{
     width: 100%;
     max-width: 100%;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    
-} */
+}
 
+#height-chart{
+
+}
 
 .playerChart{
-    
     max-height: 20rem;
+}
+
+
+#height-heading{
+    margin-top: 5rem;
 }
 
 .player-flag{

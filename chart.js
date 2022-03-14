@@ -10,6 +10,11 @@ function createChart(arr){
     canvas.setAttribute("id","myChart");
     
 
+    let headingAgeChart = document.createElement("h3");
+    headingAgeChart.setAttribute("class" , "player-name");
+    headingAgeChart.setAttribute("id", "age-heading");
+    headingAgeChart.textContent = "Player ages";
+
 
     const playerNames = arr.map((element) => element.fullname);
     const playerAges = arr.map((element) =>
@@ -28,13 +33,18 @@ function createChart(arr){
 
     
 
+    const plyrNam = arr.map(item => {
+      let a = item.fullname.split(' ');
+      return a;
+    });
+    
     
 
     
     new Chart(canvas, {
       type: "line",
       data: {
-        labels: playerNames,
+        labels: plyrNam,
         datasets: [{
           label: "Player age",
           backgroundColor: "#182E7A",
@@ -56,6 +66,7 @@ function createChart(arr){
       }
     });
 
+    chartDiv.appendChild(headingAgeChart);
     chartDiv.appendChild(canvas);
 
     return playerAges;
