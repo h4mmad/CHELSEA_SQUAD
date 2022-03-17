@@ -40,6 +40,7 @@
     padding: 2rem;
     flex-wrap: wrap;
     flex-direction: column;
+    margin-bottom: 2.5rem;
 }
 
 
@@ -219,3 +220,30 @@
    
 }
 
+/* #slogan-1{
+    float: right;
+    left: 25%;
+    position: absolute;
+}
+#slogan-2{
+    float: left;
+    left: 75%;
+    position: absolute;
+} */
+
+
+#slogan{
+    display: flex;
+    justify-content:center;  
+    flex-direction: column;
+    margin-bottom: 2.5rem ;
+    
+}
+
+#slogan-1, #slogan-2{
+    font-weight: 300;
+    font-size: x-large;
+    color: #182E7A;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
