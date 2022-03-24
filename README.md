@@ -1,2 +1,3 @@
-# CHELSEA_SQUAD
+# Chelsea-Squad
+
 Visit https://chelsea-squad.netlify.app/
